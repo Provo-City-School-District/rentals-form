@@ -1,0 +1,17 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./php.Dockerfile
+    container_name: rentals-webform-php
+    env_file: .env
+    restart: always
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8060:80"
+    environment:
+      DB_HOST: $DB_HOST
+      DB_USER: $DB_USER
+      DB_PASS: $DB_PASS
+      DB_NAME: $DB_NAME
