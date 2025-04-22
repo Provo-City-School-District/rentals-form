@@ -1,15 +1,3 @@
-function toggleFundraiserInputs(isVisible) {
-  const detailsDiv = document.getElementById("fundraiser-details");
-  const inputs = detailsDiv.querySelectorAll("input");
-  if (isVisible) {
-    detailsDiv.style.display = "block";
-    inputs.forEach((input) => (input.required = true));
-  } else {
-    detailsDiv.style.display = "none";
-    inputs.forEach((input) => (input.required = false));
-  }
-}
-
 const spacesByLocation = {
   38: ["Conference Room A", "Conference Room B", "Auditorium"],
   100: ["Gym", "Library", "Cafeteria"],

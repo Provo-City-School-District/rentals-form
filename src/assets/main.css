@@ -1,13 +1,13 @@
 /* Headings */
 h1 {
     font-size: 3em;
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-align: center;
 }
 
 h2 {
     font-size: 2em;
-    margin-bottom: 15px;
+    margin: 1em 0;
 }
 
 /* General form container */
@@ -136,4 +136,9 @@ form .success {
 
 p {
     margin-bottom: 10px;
+}
+
+em {
+    font-style: italic;
+    color: #555;
 }

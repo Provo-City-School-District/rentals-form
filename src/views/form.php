@@ -4,41 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provo City School District Rentals</title>
+    <title>Provo City School District Facility Rentals Application</title>
     <link rel="stylesheet" href="assets/reset.css">
-    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/main.css?v=1.0.0">
 </head>
 
 <body>
-    <h1>Provo City School District Rental Form</h1>
+    <h1>Provo City School District Facility Rental Application</h1>
     <form action="../forms/form-handler.php" method="POST">
         <h2>Organizer Information</h2>
-        <label for="fundraiser-yes">Are you participating in a fundraiser?</label>
-
-        <input type="radio" id="fundraiser-yes" name="fundraiser" value="yes" onclick="toggleFundraiserInputs(true)" required> Yes
-        <input type="radio" id="fundraiser-no" name="fundraiser" value="no" onclick="toggleFundraiserInputs(false)" required> No
-        <div id="fundraiser-details" style="display: none;">
-            <label for="fundraiser-name">Fundraiser Name:</label>
-            <input type="text" id="fundraiser-name" name="fundraiser_name">
-
-            <label for="fundraiser-sport">Fundraising Sport:</label>
-            <input type="text" id="fundraiser-goal" name="fundraiser">
-
-            <label for="fundraiser-team">Fundraising Team:</label>
-            <input type="text" id="fundraiser-team" name="fundraiser_team">
-
-            <label for="fundraiser-grade">Fundraising Grade:</label>
-            <input type="text" id="fundraiser-grade" name="fundraiser_grade">
-
-            <label for="fundraiser-fy">Fundraising Year:</label>
-            <input type="text" id="fundraiser-fy" name="fundraiser_fy">
-        </div>
 
         <label for="event_name">Event Name:</label>
         <input type="text" id="event_name" name="event_name" required>
 
         <label for="rate_group">Rate Group:</label>
-        <p><a href="https://provo.edu/wp-content/uploads/2017/01/6810P1ProvoSchoolDistrictFacilityRentalProcedure.pdf" target="_blank">Rate group information can be found in policy procedure 6810</a></p>
+        <p><a href="https://provo.edu/policies-procedures-forms/6000-finance-and-operations/policy-6810-provo-city-school-district-facility-rental-policy/" target="_blank">Rate group information can be found in policy procedure 6810</a></p>
         <select id="rate_group" name="rate_group" required>
             <option value="1">Category 1</option>
             <option value="2">Category 2</option>
@@ -46,6 +26,23 @@
             <option value="4">Category 4</option>
             <option value="5">Category 5</option>
         </select>
+
+        <label for="nonprofit-yes">Is the Responsible Party a registered 501(c)(3) non-profit?</label>
+        <div class="radio-group">
+            <input type="radio" id="nonprofit-yes" name="nonprofit" value="yes" onclick="toggleNonprofitAttachment(true)" required> Yes
+            <input type="radio" id="nonprofit-no" name="nonprofit" value="no" onclick="toggleNonprofitAttachment(false)" required> No
+        </div>
+
+        <div id="nonprofit-attachment-container" style="display: none;">
+            <label for="nonprofit-document">Attach 501(c)(3) Documentation (PDF only):</label>
+            <input type="file" id="nonprofit-document" name="nonprofit_document" accept="application/pdf">
+        </div>
+
+        <label for="commercial-yes">Is the Responsible Party a Commercial business?</label>
+        <div class="radio-group">
+            <input type="radio" id="commercial-yes" name="commercial" value="yes" required> Yes
+            <input type="radio" id="commercial-no" name="commercial" value="no" required> No
+        </div>
 
         <label for="responsible_party">Responsible Party:</label>
         <input type="text" id="responsible_party" name="responsible_party" required>
@@ -63,6 +60,8 @@
         <input type="email" id="email" name="email" required>
 
         <label for="description">Description of Event:</label>
+        <p><em>To facilitate a seamless rental process, please provide comprehensive details about your event, including required equipment, any special accommodations, or other relevant information not captured in the application.</em></p>
+        <p><em>This will help ensure all logistical and technical requirements are properly addressed.</em></p>
         <textarea id="description" name="description" required></textarea>
 
         <h2>School Requested</h2>
@@ -141,28 +140,14 @@
         <label for="number_of_people">Number of People Expected:</label>
         <input type="number" id="number_of_people" name="number_of_people" required>
 
-        <label for="nonprofit-yes">Is the Responsible Party a registered 501(c)(3) non-profit?</label>
-        <div class="radio-group">
-            <input type="radio" id="nonprofit-yes" name="nonprofit" value="yes" onclick="toggleNonprofitAttachment(true)" required> Yes
-            <input type="radio" id="nonprofit-no" name="nonprofit" value="no" onclick="toggleNonprofitAttachment(false)" required> No
-        </div>
-
-        <div id="nonprofit-attachment-container" style="display: none;">
-            <label for="nonprofit-document">Attach 501(c)(3) Documentation (PDF only):</label>
-            <input type="file" id="nonprofit-document" name="nonprofit_document" accept="application/pdf">
-        </div>
-
-        <label for="commercial-yes">Is the Responsible Party a Commercial business?</label>
-        <div class="radio-group">
-            <input type="radio" id="commercial-yes" name="commercial" value="yes" required> Yes
-            <input type="radio" id="commercial-no" name="commercial" value="no" required> No
-        </div>
-
-        <label for="tickets-yes">Will tickets or concessions be sold at the event?</label>
+        <label for="tickets-yes">Will concessions be sold at the event?</label>
         <div class="radio-group">
             <input type="radio" id="tickets-yes" name="tickets" value="yes" required> Yes
             <input type="radio" id="tickets-no" name="tickets" value="no" required> No
         </div>
+        <p><em>If concessions are sold during your event, you assume full responsibility for any damage to the premises or property resulting from spills or stains.</em></p>
+        <p><em>You will also be responsible for any associated cleaning costs.</em></p>
+
         <h2>Event Setup Needs (if applicable)</h2>
         <div class="checkbox-group">
             <input type="checkbox" id="microphone" name="audio_visual_needs[]" value="microphone">
@@ -191,6 +176,6 @@
         <button type="submit">Submit</button>
     </form>
 </body>
-<script src="assets/main.js"></script>
+<script src="assets/main.js?v=1.0.0"></script>
 
 </html>
