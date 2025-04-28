@@ -34,7 +34,7 @@
         </div>
 
         <div id="nonprofit-attachment-container" style="display: none;">
-            <label for="nonprofit-document">Attach 501(c)(3) Documentation (PDF only):</label>
+            <label for="nonprofit-document">Attach 501(c)(3) IRS Letter of Determination (PDF only):</label>
             <input type="file" id="nonprofit-document" name="nonprofit_document" accept="application/pdf">
         </div>
 
