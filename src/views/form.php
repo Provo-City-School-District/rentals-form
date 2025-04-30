@@ -1,3 +1,8 @@
+<?php
+session_start();
+$csrf_token = bin2hex(random_bytes(32));
+$_SESSION['csrf_token'] = $csrf_token;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,7 @@
 
 <body>
     <h1>Provo City School District Facility Rental Application</h1>
-    <form action="../forms/form-handler.php" method="POST">
+    <form action="../forms/form-handler.php" method="POST" enctype="multipart/form-data">
         <h2>Organizer Information</h2>
 
         <label for="event_name">Event Name:</label>
@@ -173,6 +178,14 @@
             <input type="checkbox" id="chairs" name="audio_visual_needs[]" value="chairs">
             <label for="chairs">Chairs (approximate additional cost: $100)</label>
         </div>
+
+        <!-- Honeypot Field -->
+        <div class='hidden'>
+            <label for="any_additional_info">Leave this field empty:</label>
+            <input type="text" id="any_additional_info" name="any_additional_info">
+        </div>
+        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+
         <button type="submit">Submit</button>
     </form>
 </body>
